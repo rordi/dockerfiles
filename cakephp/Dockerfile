@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ libmcrypt-dev
     php -r "unlink('composer-setup.php');" && \
     chmod +x /usr/local/bin/composer && \
     docker-php-ext-configure intl && \
-    docker-php-ext-install -j$(nproc) intl pdo_mysql mcrypt && \
+    docker-php-ext-install -j$(nproc) intl pdo_mysql mcrypt gd && \
     apt-get -y remove zlib1g-dev libicu-dev g++ libmcrypt-dev && \
     rm -rf /var/cache/*
 
