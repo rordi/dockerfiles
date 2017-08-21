@@ -17,6 +17,7 @@ RUN apt-get update \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
     && chmod +x /usr/local/bin/composer \
+    && /usr/local/bin/composer self-update --no-interaction \
     && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) intl pdo_mysql mcrypt gd \
     && apt-get -y remove zlib1g-dev libicu-dev g++ libmcrypt-dev \
